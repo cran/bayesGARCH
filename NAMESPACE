@@ -1,0 +1,4 @@
+export(bayesGARCH)
+export(addPriorConditions)
+export(formSmpl)
+useDynLib(bayesGARCH)
