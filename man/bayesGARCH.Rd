@@ -1,10 +1,10 @@
 \name{bayesGARCH}
 \alias{bayesGARCH}
-\title{Bayesian Estimation of the GARCH(1,1) Model with Student's t Innovations}
+\title{Bayesian Estimation of the GARCH(1,1) Model with Student-t Innovations}
 \concept{Bayesian GARCH}
 \description{%
   Performs the Bayesian estimation of the GARCH(1,1) model with
-  Student's t innovations.
+  Student-t innovations.
 }
 \usage{%
   bayesGARCH(y, mu.alpha = c(0,0), Sigma.alpha = 1000 * diag(1,2), 
@@ -37,7 +37,7 @@
 }
 \details{%
   The function \code{bayesGARCH} performs the Bayesian estimation of the
-  GARCH(1,1) model with Student's t innovations. The underlying algorithm is based on Nakatsuma
+  GARCH(1,1) model with Student-t innovations. The underlying algorithm is based on Nakatsuma
   (1998, 2000) for generating the parameters of the GARCH(1,1) scedastic
   function \eqn{\alpha := (\alpha_0 \ \alpha_1)'}{alpha:=(alpha0 alpha1)'} and \eqn{\beta}{beta} and on
   Geweke (1993) and Deschamps (2006) for the generating the degrees of freedom
@@ -64,7 +64,7 @@
   A list of class \code{mcmc.list} (\R package \pkg{coda}).
 }
 \note{%
-  The GARCH(1,1) model with Student's t innovations may be written as follows:
+  The GARCH(1,1) model with Student-t innovations may be written as follows:
   \deqn{
     y_t = \epsilon_t (\varrho h_t)^{1/2}
   }{
@@ -82,7 +82,7 @@
     (\nu-2)/\nu}{varrho:=(nu-2)/nu} is a scaling factor which ensures
   the conditional variance of \eqn{y_t}{y(t)} to be
   \eqn{h_t}{h(t)}. Finally, \eqn{\epsilon_t}{e(t)}
-  follows a Student's t distribution with \eqn{\nu}{nu} degrees of freedom.
+  follows a Student-t distribution with \eqn{\nu}{nu} degrees of freedom.
 
   The prior distributions on \eqn{\alpha}{alpha} is a bivariate truncated
   Normal distribution:
@@ -141,6 +141,8 @@
   value so that the chain doesn't move anymore. In this case, run the sampler again with a
   different seed or a different starting value. Good starting values can
   be obtained using the function \code{garchFit} (\R package \pkg{fGarch}).
+  
+  Please cite the package in publications. Use \code{citation("bayesGARCH")}.
 }
 \references{%
   Ardia, D. (2008) `Financial Risk Management with Bayesian Estimation
