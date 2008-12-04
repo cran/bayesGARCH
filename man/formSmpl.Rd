@@ -16,12 +16,15 @@
 \value{%
   The joint posterior sample as an \code{mcmc} object (\R package \pkg{coda}).
 }
+\note{%
+  Please cite the package in publications. Use \code{citation("bayesGARCH")}.
+}
 \author{%
   David Ardia <\email{david.ardia@unifr.ch}>
 }
 \seealso{%
   \code{\link{bayesGARCH}} for the Bayesian estimation of the GARCH(1,1)
-  model with Student's t innovations.
+  model with Student-t innovations.
 }
 \examples{
   ## LOAD DATA SET
