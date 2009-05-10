@@ -1,54 +1,50 @@
-desc <- packageDescription("bayesGARCH")
-year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", desc$Date)
-vers <- paste("R package version", desc$Version)
+if(!exists("meta") || is.null(meta)) meta <- packageDescription("bayesGARCH")
+year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date)
+vers <- paste("version", meta$Version)
 
 citEntry(entry = "Manual",
-  title = "bayesGARCH: Bayesian Estimation of the GARCH(1,1) Model with Student-t Innovations",
+  title = "bayesGARCH: Bayesian Estimation of the GARCH(1,1) Model with Student-t Innovations in R",
   author = personList(as.person("David Ardia")),
   year = year,
   note = vers,
-  url = "http://CRAN.R-project.org/",
+  url = "http://CRAN.R-project.org/package=bayesGARCH",
   textVersion =
-  paste("Ardia, David (", year, ") 'bayesGARCH' ", vers, ".", sep = ""),
-         header = "to cite the bayesGARCH package use:")
-
-citEntry(entry = "Article",
-  title = "A Markov-Chain Sampling Algorithm for GARCH Models",
-  author = personList(as.person("Teruo Nakatsuma")),
-  journal = "Studies in Nonlinear Dynamics and Econometrics",
-  volume = "3",
-  number = "2",
-  pages = "107--117",
-  year = "1998",
-  note = "Algorithm 1",
-  textVersion = "Nakatsuma, Teruo (1998) 'A Markov-Chain Sampling Algorithm for
-  GARCH Models'. Studies in Nonlinear Dynamics and Econometrics 3(2):107-117. Algorithm 1.",
-  header = "The intial algorithm for GARCH models:")
+  paste("Ardia, David (", year, "). ",
+        "bayesGARCH: Bayesian Estimation of the GARCH(1,1) Model with Student-t Innovations in R. ",
+        "R package version ", vers, ". ",
+        "URL http://CRAN.R-project.org/package=bayesGARCH", sep = "")
+)
 
 citEntry(entry = "incollection",
   title = "Financial Risk Management with Bayesian Estimation of GARCH Models: Theory and Applications",
   author = personList(as.person("David Ardia")),
-  editor = personList(as.person("G. Fandel"),as.person("Walter Trockel")),
+  editor = personList(as.person("G. Fandel"), as.person("Walter Trockel")),
   publisher = "Springer-Verlag",
   series = "Lecture Notes in Economics and Mathematical Systems",
   volume = "612",
   year = "2008",
-  note = "ISBN: 978-3-540-78656-6, e-ISBN: 978-3-540-78657-3, DOI: 10.1007/978-3-540-78657-3",
-  textVersion = "Ardia, David (2008) 'Financial Risk Management with Bayesian Estimation of GARCH Models: Theory and
-  Application'. Springer (LNEMS 612), ISBN: 978-3-540-78656-6, e-ISBN: 978-3-540-78657-3, DOI: 10.1007/978-3-540-78657-3.",
-  header = "A book giving further details on MCMC sampling schemes for GARCH models")
+  note = "ISBN 978-3-540-78656-6, e-ISBN 978-3-540-78657-3, doi 10.1007/978-3-540-78657-3",
+  textVersion = paste(
+                "Ardia, David (2008).",
+                "Financial Risk Management with Bayesian Estimation of GARCH Models: Theory and Application.",
+                "Lecture Notes in Economics and Mathematical Systems 612.",
+                "Springer-Verlag, Berlin, Germany.",
+                "ISBN: 978-3-540-78656-6, e-ISBN: 978-3-540-78657-3, doi: 10.1007/978-3-540-78657-3.")
+)
 
-citEntry(entry = "Misc",
-  title = "Bayesian Estimation of the GARCH(1,1) Model with Studen-t Innovations: the bayesGARCH R-package",
+citEntry(entry = "Article",
+  title = "Bayesian Estimation of a Markov-Switching Threshold Asymmetric GARCH Model with Student-t Innovations",
   author = personList(as.person("David Ardia")),
-  note = "Working paper (forthcoming)",
-  organization = "Department of Quantitative Economics",
-  address = "University of Fribourg, Switzerland",
-  year = "2008",
-  textVersion = "Ardia, David (2008) 'Bayesian Estimation of the GARCH(1,1) Model
-  with Studen-t Innovations: the bayesGARCH R-package'. Working paper (forthcoming), Department of Quantitative Economics,
-  University of Fribourg, Switzerland.",
-  header = "An article introducing the bayesGARCH R-package:")
+  journal = "Econometrics Journal",
+  volume = "12",
+  number = "1",
+  pages = "105--126",
+  year = "2009",
+  textVersion = paste(
+                "Ardia, David (2009).",
+                "Bayesian Estimation of a Markov-Switching Threshold Asymmetric GARCH Model with Student-t Innovations.",
+                "Econometrics Journal 12(1). pp.105-126.")
+)
 
 citEntry(entry = "Article",
   title = "Bayesian Analysis of ARMA-GARCH Models: A Markov Chain Sampling Approach",
@@ -58,9 +54,11 @@ citEntry(entry = "Article",
   number = "1",
   pages = "57--69",
   year = "2000",
-  textVersion = "Nakatsuma, Teruo (2000) 'Bayesian Analysis of ARMA-GARCH Models: A Markov
-  Chain Sampling Approach'. Journal of Econometrics 95(1):57-69.",
-  header = "Complementary article for GARCH models:")
+  textVersion = paste(
+                "Nakatsuma, Teruo (2000).",
+                "Bayesian Analysis of ARMA-GARCH Models: A Markov Chain Sampling Approach.",
+                "Journal of Econometrics 95(1), pp.57-69.")
+)
 
 citEntry(entry = "Article",
   title = "Bayesian Estimation of the GARCH(1,1) Model with Normal Innovations",
@@ -70,33 +68,8 @@ citEntry(entry = "Article",
   number = "3--4",
   pages = "283--298",
   year = "2006",
-  textVersion = "Ardia, David (2006) 'Bayesian Estimation of the GARCH(1,1) Model 
-  with Normal Innovations'. Student 5(3-4):283-298.",
-  header = "Complementary article for GARCH models:")
-  
-citEntry(entry = "Article",
-  title = "Bayesian Treatment of the Independent Student-t Linear Model",
-  author = personList(as.person("John F. Geweke")),
-  journal = "Journal of Applied Econometrics",
-  volume = "52",
-  number = "8",
-  pages = "S19--S40",
-  year = "1993",
-  note = "Supplement: Special Issue on Econometric Inference Using Simulation Techniques",
-  textVersion = "Geweke, John F. (1993) 'Bayesian Treatment of the Independent 
-  Student-t Linear Model'. Journal of Applied Econometrics 52(8):S19-S40. Supplement: Special Issue on Econometric 
-  Inference Using Simulation Techniques",
-  header = "Simulation of the degrees of freedom parameter:")
-  
-citEntry(entry = "Article",
-  title = "A Flexible Prior Distribution for Marov Switching Autoregressions with Student-t Errors",
-  author = personList(as.person("Philippe J. Deschamps")),
-  journal = "Journal of Econometrics",
-  volume = "133",
-  number = "8",
-  pages = "153--190",
-  year = "2006",
-  textVersion = "Deschamps, P. J. (2006) 'A Flexible Prior Distribution for Marov Switching 
-  Autoregressions with Student-t Errors'. Journal of Econometrics 133:153-190.",
-  header = "Complementary article for the simulation of the degrees of freedom parameter:")
-
+  textVersion = paste(
+                "Ardia, David (2006).",
+                "Bayesian Estimation of the GARCH(1,1) Model with Normal Innovations.",
+                "Student 5(3-4), pp.283-298.")
+)
