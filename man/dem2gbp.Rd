@@ -15,14 +15,17 @@
 \source{Journal of Business and Economic Statistics\cr
   \url{ftp://www.amstat.org/JBES_View/96-2-APR/bollerslev_ghysels}.}
 \references{%
-  Bollerslev T., Ghysels, E. (1996) `Periodic Autoregressive Conditional
-  Heteroscedasticity', \emph{Journal of Business and Economic Statistics} \bold{14}(2), 139--151.
+  Bollerslev T., Ghysels, E. (1996). 
+  Periodic Autoregressive Conditional Heteroscedasticity. 
+  \emph{Journal of Business and Economic Statistics} \bold{14}(2), pp.139--151.
 
-  Brooks C., Burke S. P., Persand G. (2001) `Benchmarks and the Accuracy of GARCH Model 
-  Estimation', \emph{International Journal of Forecasting} \bold{17}(1), 45--57.
-  
-  McCullough B. D., Renfro C. G. (1999) `Benchmarks and Software Standards: A Case
-  Study of GARCH Procedures', \emph{Journal of Economic and Social Measurement} \bold{25}(2), 59--71.
+  Brooks C., Burke S. P., Persand G. (2001). 
+  Benchmarks and the Accuracy of GARCH Model Estimation. 
+  \emph{International Journal of Forecasting} \bold{17}(1), pp.45--57.
+
+  McCullough B. D., Renfro C. G. (1999).
+  Benchmarks and Software Standards: A Case Study of GARCH Procedures. 
+  \emph{Journal of Economic and Social Measurement} \bold{25}(2), pp.59--71.
 }
 \keyword{datasets}
 
