@@ -1,6 +1,6 @@
 Package: bayesGARCH
-Version: 1-00.04
-Date: 2009-05-10
+Version: 1-00.05
+Date: 2009-11-24
 Title: Bayesian Estimation of the GARCH(1,1) Model with Student-t
         Innovations
 Author: David Ardia <david.ardia@unifr.ch>
@@ -11,6 +11,6 @@ Description: This package provides the bayesGARCH function which
         Student's t innovations.
 License: GPL (>= 2)
 URL: http://perso.unifr.ch/david.ardia/
-Packaged: Sun May 10 15:45:13 2009; David Ardia
+Packaged: 2009-11-24 21:59:59 UTC; ardiad
 Repository: CRAN
-Date/Publication: 2009-05-11 10:28:24
+Date/Publication: 2009-11-25 08:29:41
