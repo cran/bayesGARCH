@@ -15,11 +15,11 @@ citEntry(entry = "Manual",
         "URL http://CRAN.R-project.org/package=bayesGARCH", sep = "")
 )
 
-citEntry(entry = "incollection",
+citEntry(entry = "book",
   title = "Financial Risk Management with Bayesian Estimation of GARCH Models: Theory and Applications",
   author = personList(as.person("David Ardia")),
-  editor = personList(as.person("G. Fandel"), as.person("Walter Trockel")),
   publisher = "Springer-Verlag",
+  address = "Berlin, Germany",
   series = "Lecture Notes in Economics and Mathematical Systems",
   volume = "612",
   year = "2008",
@@ -30,6 +30,20 @@ citEntry(entry = "incollection",
                 "Lecture Notes in Economics and Mathematical Systems 612.",
                 "Springer-Verlag, Berlin, Germany.",
                 "ISBN: 978-3-540-78656-6, e-ISBN: 978-3-540-78657-3, doi: 10.1007/978-3-540-78657-3.")
+)
+
+citEntry(entry = "misc",
+  author = personList(as.person("David Ardia")),
+  title = "Bayesian Estimation of the GARCH(1,1) Model with Student-t Innovations in R",
+  howpublished = "MPRA working paper",
+  month = "September",
+  year = "2009",
+  note = "URL http://mpra.ub.uni-muenchen.de/17414/",
+  textVersion = paste(
+                "Ardia, David (2009).",
+                "Bayesian Estimation of the GARCH(1,1) Model with Student-t Innovations in R.",
+                "MPRA working paper.",
+                "URL http://mpra.ub.uni-muenchen.de/17414/")
 )
 
 citEntry(entry = "Article",

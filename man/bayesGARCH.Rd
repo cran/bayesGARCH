@@ -41,7 +41,8 @@
   (1998, 2000) for generating the parameters of the GARCH(1,1) scedastic
   function \eqn{\alpha := (\alpha_0 \ \alpha_1)'}{alpha:=(alpha0 alpha1)'} and \eqn{\beta}{beta} and on
   Geweke (1993) and Deschamps (2006) for the generating the degrees of freedom
-  parameter \eqn{\nu}{nu}. Further details and examples can be found in Ardia (2008).
+  parameter \eqn{\nu}{nu}. Further details and examples can be found in Ardia (2008, 2009b). See also
+  Ardia (2009a) for an extension of the algorithm for Markov-switching GARCH models.
 
   The \code{control} argument is a list that can supply any of
   the following components:
@@ -145,9 +146,14 @@
   Please cite the package in publications. Use \code{citation("bayesGARCH")}.
 }
 \references{%
-  Ardia, D. (2009).
+  Ardia, D. (2009a).
   Bayesian Estimation of a Markov-Switching Threshold Asymmetric GARCH Model with Student-t Innovations.
-  \emph{Econometrics Journal} \bold{12}(1), pp. 105--126. doi: 10.1111/j.1368-423X.2008.00253.x. 
+  \emph{Econometrics Journal} \bold{12}(1), pp. 105--126. doi: 10.1111/j.1368-423X.2008.00253.x.
+
+  Ardia, D. (2009b).
+  Bayesian Estimation of the GARCH(1,1) Model with Student-t Innovations in R. 
+  \emph{MPRA working paper}. pp.1--8. 
+  URL \url{http://mpra.ub.uni-muenchen.de/17414/}
 
   Ardia, D. (2008). 
   Financial Risk Management with Bayesian Estimation of GARCH Models. 
@@ -155,29 +161,26 @@
   ISBN 978-3-540-78656-6, e-ISBN 978-3-540-78657-3, doi: 10.1007/978-3-540-78657-3. 
   URL \url{http://www.springer.com/economics/econometrics/book/978-3-540-78656-6}
 
-  Ardia, D. (2008). 
-  Bayesian Estimation of the GARCH(1,1) Model with Student-t Innovations in R. The package bayesGARCH. 
-  \emph{Working paper}. Departement of Quantitative Economics, University of Fribourg, Switzerland.
-
   Ardia, D. (2006).
   Bayesian Estimation of the GARCH(1,1) Model with Normal Innovations. 
   \emph{Student} \bold{5}(3--4), pp.283--298.
+  URL \url{http://mpra.ub.uni-muenchen.de/12985/}
 
-  Deschamps, P. J. (2006). 
+  Deschamps, P.J. (2006). 
   A Flexible Prior Distribution for Markov Switching Autoregressions with Student-t Errors. 
   \emph{Journal of Econometrics} \bold{133}, pp.153--190.
 
-  Geweke, J. F. (1993). 
+  Geweke, J.F. (1993). 
   Bayesian Treatment of the Independent Student-t Linear Model. 
   \emph{Journal of Applied Econometrics} \bold{8}, pp.19--40.
-
-  Nakatsuma, T. (1998). 
-  A Markov-Chain Sampling Algorithm for GARCH Models'. 
-  \emph{Studies in Nonlinear Dynamics and Econometrics} \bold{3}(2), pp.107--117.
 
   Nakatsuma, T. (2000). 
   Bayesian Analysis of ARMA-GARCH Models: A Markov Chain Sampling Approach. 
   \emph{Journal of Econometrics} \bold{95}(1), pp.57--69.
+
+  Nakatsuma, T. (1998). 
+  A Markov-Chain Sampling Algorithm for GARCH Models'. 
+  \emph{Studies in Nonlinear Dynamics and Econometrics} \bold{3}(2), pp.107--117.
 }
 \author{%
   David Ardia <\email{david.ardia@unifr.ch}>
