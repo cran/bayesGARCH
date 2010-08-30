@@ -2,6 +2,8 @@ if(!exists("meta") || is.null(meta)) meta <- packageDescription("bayesGARCH")
 year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date)
 vers <- paste("version", meta$Version)
 
+citHeader("To cite 'bayesGARCH' in publications use:")
+
 citEntry(entry = "Manual",
   title = "bayesGARCH: Bayesian Estimation of the GARCH(1,1) Model with Student-t Innovations in R",
   author = personList(as.person("David Ardia")),
@@ -33,14 +35,14 @@ citEntry(entry = "book",
 )
 
 citEntry(entry = "misc",
-  author = personList(as.person("David Ardia")),
+  author = personList(as.person("David Ardia"), person("Lennart","Hoogerheide","F.")),
   title = "Bayesian Estimation of the GARCH(1,1) Model with Student-t Innovations in R",
   howpublished = "MPRA working paper",
   month = "September",
   year = "2009",
   note = "URL http://mpra.ub.uni-muenchen.de/17414/",
   textVersion = paste(
-                "Ardia, David (2009).",
+                "Ardia, David and Hoogerheide, Lennart F. (2009).",
                 "Bayesian Estimation of the GARCH(1,1) Model with Student-t Innovations in R.",
                 "MPRA working paper.",
                 "URL http://mpra.ub.uni-muenchen.de/17414/")

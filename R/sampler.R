@@ -13,7 +13,8 @@
 ## control = list() : a list with
 ##           n.chain = 1: number of chain
 ##           l.chain = 1000 : length of each chain
-##           start.val = c(0.01, 0.1, 0.7, 20) : starting values
+##           start.val = c(0.01, 0.1, 0.7, 20) : starting valuesn
+##           addPriorConditions : a function
 ##           digits = 4 : digits for the output
 ##           refresh = 10 : refreshing frequency
 ## __output__
@@ -57,6 +58,9 @@
     stop ("'delta' cannot be lower than '2'")
   if (!is.list(control))
     stop ("'control' must be a list")
+  if (!is.null(control$addPriorConditions))
+    if (!is.function(control$addPriorConditions))
+      stop ("'control$addPriorConditions' must be NULL or a function")
   
   fn.bayesGARCH(y, mu.alpha, solve(Sigma.alpha), mu.beta, 1/Sigma.beta, lambda, delta, control)
 }
@@ -64,9 +68,9 @@
 ## sub function fn.bayesGARCH
 "fn.bayesGARCH" <- function(y, mu.alpha, iv.alpha, mu.beta, iv.beta, c.nu, d.nu, control){
   
-  con <- list(n.chain = NULL, l.chain = 10000, digits = 4, refresh = 10,
+  con <- list(n.chain = NULL, l.chain = 10000, addPriorConditions = NULL, digits = 4, refresh = 10,
               start.val = matrix(c(0.01,0.1, 0.7, 100), 1, 4,
-                dimnames = list("chain1", c("alpha0","alpha1", "beta", "nu"))),
+                dimnames = list("chain1", c("alpha0", "alpha1", "beta", "nu"))),
               hypers = list(mu.alpha = mu.alpha, iv.alpha = iv.alpha,
                 mu.beta = mu.beta, iv.beta = iv.beta, c.nu = c.nu, d.nu = d.nu))
   
@@ -78,10 +82,10 @@
   else con$start.val <- matrix(rep(con$start.val, con$n.chain), 
                                con$n.chain, byrow = TRUE)
   if (is.null(colnames(con$start.val))) 
-    colnames(con$start.val) <- c("alpha0", "alpha1", "beta", "nu")
+    colnames(con$start.val) <- c("alpha0", "alpha1", "beta", "nu") 
   if (is.null(rownames(con$start.val))) 
-    rownames(con$start.val) <- paste(rep("chain", con$n.chain), 
-                                     1:con$n.chain, sep = "")
+    rownames(con$start.val) <- paste(rep("chain", con$n.chain), 1:con$n.chain, sep = "")
+  if (is.null(con$addPriorConditions)) {con$addPriorConditions <- function(psi){TRUE}}
   r <- list()
   for (i in 1:con$n.chain) {
     k <- NULL
@@ -90,7 +94,7 @@
       k <- j - 1
       chain[j, ] <- fn.block(y, chain[k, 1:2], chain[k,3], chain[k, 4], con$hypers$mu.alpha, con$hypers$iv.alpha, 
                              con$hypers$mu.beta, con$hypers$iv.beta, con$hypers$c.nu, 
-                             con$hypers$d.nu)
+                             con$hypers$d.nu, con$addPriorConditions)
       if (con$refresh > 0 & j%%con$refresh == 0) 
         cat("chain: ", i, " iteration: ", j, " parameters: ", 
             round(chain[j, ], con$digits), "\n")
@@ -166,7 +170,7 @@
 ## alpha0, iv.alpha0, beta0, iv.beta0, c.nu, d.nu : hyperparameters
 ## __output__
 ## block of parameters
-"fn.block" <- function(y, alpha, beta, nu, alpha0, iv.alpha0, beta0, iv.beta0, c.nu, d.nu){
+"fn.block" <- function(y, alpha, beta, nu, alpha0, iv.alpha0, beta0, iv.beta0, c.nu, d.nu, addPriorConditions){
   
   w.new <- fn.w.full(y, alpha, beta, nu,
                      alpha0, iv.alpha0, beta0, iv.beta0, c.nu, d.nu)	
