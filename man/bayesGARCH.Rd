@@ -41,8 +41,8 @@
   (1998, 2000) for generating the parameters of the GARCH(1,1) scedastic
   function \eqn{\alpha := (\alpha_0 \ \alpha_1)'}{alpha:=(alpha0 alpha1)'} and \eqn{\beta}{beta} and on
   Geweke (1993) and Deschamps (2006) for the generating the degrees of freedom
-  parameter \eqn{\nu}{nu}. Further details and examples can be found in Ardia (2008, 2009b). See also
-  Ardia (2009a) for an extension of the algorithm for Markov-switching GARCH models.
+  parameter \eqn{\nu}{nu}. Further details and examples can be found in Ardia (2008) and 
+  Ardia and Hoogerheide (2009). See also Ardia (2009) for an extension of the algorithm for Markov-switching GARCH models.
 
   The \code{control} argument is a list that can supply any of
   the following components:
@@ -50,12 +50,14 @@
   \describe{%
     \item{\code{n.chain}}{number of MCMC chain(s) to be
       generated. Default: \code{n.chain=1}.}
-    \item{\code{l.chain}}{length of each MCMC chain. Default: \code{l.chain=10000}.}
+    \item{\code{l.chain}}{length of each MCMC chain. Default: \code{l.chain=10000}.}    
     \item{\code{start.val}}{vector of starting values of
       chain(s). Default: \code{start.val=c(0.01,0.1,0.7,20)}. A matrix of
       size \eqn{n \times 4}{nx4}
       containing starting values in rows can also be provided. This will generate \eqn{n} chains starting at the
       different row values.}
+    \item{\code{addPriorConditions}}{function which allows the user to add constraints on the model parameters. 
+      Default: \code{NULL}, i.e. not additional constraints are imposed (see below).}
     \item{\code{refresh}}{frequency of reports. Default: \code{refresh=10} iterations.}
     \item{\code{digits}}{number of printed digits in the
       reports. Default: \code{digits=4}.}
@@ -132,25 +134,67 @@
   
   The Bayesian estimation of the GARCH(1,1) model with Normal
   innovations is obtained as a special case by setting \code{lambda=100}
-  and \code{delta=500}. In
-  this case, the generated values for
+  and \code{delta=500}. In this case, the generated values for
   \eqn{\nu}{nu} are centered around 500 which ensure approximate Normality
   for the innovations. 
 
-  !!! WARNING !!!
-  For some time series, the sampler can get stuck to a given
-  value so that the chain doesn't move anymore. In this case, run the sampler again with a
-  different seed or a different starting value. Good starting values can
-  be obtained using the function \code{garchFit} (\R package \pkg{fGarch}).
+  The function \code{addPriorConditions} allows to add prior conditions on the model
+  parameters \eqn{\psi := (\alpha_0 \ \alpha_1 \ \beta \
+    \nu)'}{psi:=(alpha0 alpha1 beta nu)'}. The
+  function must return \code{TRUE} if the constraint holds and
+  \code{FALSE} otherwise.
+
+  By default, the function is:
+  \preformatted{%
+    addPriorConditions <- function(psi)
+    {
+      TRUE
+    }
+  }
+  and therefore does not add any other constraint than the positivity of
+  the parameters which are obtained through the prior distribution
+  for \eqn{\psi}. 
+
+  You simply need to modify \code{addPriorConditions} in order to add
+  constraints on the model parameters \eqn{\psi}. For instance, to impose the
+  covariance-stationary conditions to hold,
+  i.e. \eqn{\alpha_1 + \beta < 1}, just define
+  the function \code{addPriorConditions} as follows:
+  \preformatted{%
+    addPriorConditions <- function(psi)
+    {
+      psi[2] + psi[3] < 1
+    }
+  }
+  
+  Note that adding prior constraints on the model parameters
+  can diminish the acceptance rate and therefore
+  lead to a very inefficient sampler. This would however indicate that the
+  condition is not supported by the data.
+
+  The estimation strategy implemented in \code{bayesGARCH} is fully automatic and does not require 
+  any tuning of the MCMC sampler. The generation of the Markov chains is however time
+  consuming and estimating the model over several datasets on a daily basis can therefore take a significant amount
+  of time. In this case, the algorithm can be easily parallelized, by running a single chain on several processors.
+  Also, when the estimation is repeated over updated time series (i.e. time series with more recent 
+  observations), it is wise to start the algorithm using the posterior mean or median of the parameters 
+  obtained at the previous estimation step. The impact of the starting values (burn-in phase) is likely to be 
+  smaller and thus the convergence faster.
+
+  Finally, note that as any MH algorithm, the sampler can get stuck to a given value, so that the chain does not move
+  anymore. However, the sampler uses Taylor-made candidate densities that are especially `constructed' at each step,
+  so it is almost impossible for this MCMC sampler to get stuck at a given value for many subsequent draws.
+  In the unlikely case that such ill behavior would occur, one could scale the data (to have standard deviation 1),
+  or run the algorithm with different initial values or a different random seed.
   
   Please cite the package in publications. Use \code{citation("bayesGARCH")}.
 }
 \references{%
-  Ardia, D. (2009a).
+  Ardia, D. (2009).
   Bayesian Estimation of a Markov-Switching Threshold Asymmetric GARCH Model with Student-t Innovations.
   \emph{Econometrics Journal} \bold{12}(1), pp. 105--126. doi: 10.1111/j.1368-423X.2008.00253.x.
 
-  Ardia, D. (2009b).
+  Ardia, D., Hoogerheide, L.F. (2009).
   Bayesian Estimation of the GARCH(1,1) Model with Student-t Innovations in R. 
   \emph{MPRA working paper}. pp.1--8. 
   URL \url{http://mpra.ub.uni-muenchen.de/17414/}
@@ -186,8 +230,6 @@
   David Ardia <\email{david.ardia@unifr.ch}>
 }
 \seealso{%
-  \code{\link{addPriorConditions}} to integrate additional prior
-  conditions on the model parameters in the sampler;
   \code{\link[fGarch:garchFit]{garchFit}} (\R package \pkg{fGarch}) for the classical
   Maximum Likelihood estimation of GARCH models.
 }
@@ -216,5 +258,12 @@
   ## GARCH(1,1) WITH NORMAL INNOVATIONS
   MCMC <- bayesGARCH(y, lambda = 100, delta = 500,
                      control = list(n.chain = 2, l.chain = 2000))
+
+  ## GARCH(1,1) WITH NORMAL INNOVATIONS AND 
+  ## WITH COVARIANCE STATIONARITY CONDITION
+  addPriorConditions <- function(psi){psi[2] + psi[3] < 1}
+  MCMC <- bayesGARCH(y, lambda = 100, delta = 500,
+                     control = list(n.chain = 2, l.chain = 2000, 
+                     addPriorConditions = addPriorConditions))
 }
 \keyword{models}

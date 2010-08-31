@@ -49,14 +49,3 @@
 
   mcmc(r, start = 1)
 }
-
-## addPriorConditions
-## __input__
-## psi.old := (alpha.old, beta.old, nu.old) old parameters
-## psi.new := (alpha.new, beta.new, nu.new) new parameters
-"addPriorConditions" <- function(psi){
- TRUE
-}
-
-
-

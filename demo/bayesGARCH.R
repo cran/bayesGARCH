@@ -41,22 +41,16 @@ addPriorConditions <- function(psi)
 {
     psi[2] + psi[3] < 1
 }
-assignInNamespace("addPriorConditions", addPriorConditions, "bayesGARCH")
-
 MCMC <- bayesGARCH(y, lambda = 100, delta = 500,
-                   control = list(n.chain = 2, l.chain = 2000))
+                   control = list(n.chain = 2, l.chain = 2000, 
+                   addPriorConditions = addPriorConditions))
 wait()
 
 ## GARCH(1,1) WITH NORMAL INNOVATIONS AND
 ## WITH COVARIANCE STATIONARITY CONDITION
-addPriorConditions <- function(psi)
-{
-    psi[2] + psi[3] < 1
-}
-assignInNamespace("addPriorConditions", addPriorConditions, "bayesGARCH")
-
 MCMC <- bayesGARCH(y, lambda = 100, delta = 500,
-                   control = list(n.chain = 2, l.chain = 2000))
+                   control = list(n.chain = 2, l.chain = 2000,
+                   addPriorConditions = addPriorConditions))
 wait()
                    
 ## MCMC ANALYSIS (using coda)

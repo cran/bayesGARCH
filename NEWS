@@ -1,3 +1,10 @@
+Changes in Version 1-00.6
+
+  o function addPriorConditions is now a control parameter in bayesGARCH.
+  o demo file modified accordingly.
+  o documentation modified accordingly.
+  o CITATION file modified.
+
 Changes in Version 1-00.05
   
   o CITATION file corrected
