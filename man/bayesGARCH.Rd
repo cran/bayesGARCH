@@ -13,24 +13,24 @@
 }
 \arguments{%
   \item{y}{vector of observations of size \eqn{T}. \code{NA} values are not allowed.}
-  \item{mu.alpha}{hyperparameter \eqn{\mu_\alpha}{mu_alpha} (prior mean)
+  \item{mu.alpha}{hyper-parameter \eqn{\mu_\alpha}{mu_alpha} (prior mean)
     for the truncated Normal prior on parameter
     \eqn{\alpha := (\alpha_0 \ \alpha_1)'}{alpha:=(alpha0
       alpha1)'}. Default: a \eqn{2 \times 1}{2x1} vector of zeros.}
-  \item{Sigma.alpha}{hyperparameter \eqn{\Sigma_\alpha}{Sigma_alpha}
+  \item{Sigma.alpha}{hyper-parameter \eqn{\Sigma_\alpha}{Sigma_alpha}
     (prior covariance matrix) for
     the truncated Normal prior on parameter
     \eqn{\alpha}{alpha}. Default: a \eqn{2 \times 2}{2x2} diagonal matrix whose
     variances are set to 1'000, i.e., a diffuse prior. Note that the matrix
     must be symmetric positive definite.}
-  \item{mu.beta}{hyperparameter \eqn{\mu_\beta}{mu_beta} (prior mean) for the truncated Normal prior on
+  \item{mu.beta}{hyper-parameter \eqn{\mu_\beta}{mu_beta} (prior mean) for the truncated Normal prior on
     parameter \eqn{\beta}{beta}. Default: zero.}
-  \item{Sigma.beta}{hyperparameter \eqn{\Sigma_\beta > 0}{Sigma_beta>0} (prior variance) for the truncated
-    Normal prior on paramter \eqn{\beta}{beta}. Default: 1'000, i.e.,
+  \item{Sigma.beta}{hyper-parameter \eqn{\Sigma_\beta > 0}{Sigma_beta>0} (prior variance) for the truncated
+    Normal prior on parameter \eqn{\beta}{beta}. Default: 1'000, i.e.,
     a diffuse prior.} 
-  \item{lambda}{hyperparameter \eqn{\lambda > 0}{lambda>0} for the translated
+  \item{lambda}{hyper-parameter \eqn{\lambda > 0}{lambda>0} for the translated
     Exponential distribution on parameter \eqn{\nu}{nu}. Default: 0.01.}
-  \item{delta}{hyperparameter \eqn{\delta \ge 2}{delta>=2} for the translated
+  \item{delta}{hyper-parameter \eqn{\delta \ge 2}{delta>=2} for the translated
     Exponential distribution on parameter \eqn{\nu}{nu}. Default: 2 (to
     ensure the existence of the conditional variance).}
   \item{control}{list of control parameters (See *Details*).}
@@ -42,7 +42,7 @@
   function \eqn{\alpha := (\alpha_0 \ \alpha_1)'}{alpha:=(alpha0 alpha1)'} and \eqn{\beta}{beta} and on
   Geweke (1993) and Deschamps (2006) for the generating the degrees of freedom
   parameter \eqn{\nu}{nu}. Further details and examples can be found in Ardia (2008) and 
-  Ardia and Hoogerheide (2009). See also Ardia (2009) for an extension of the algorithm for Markov-switching GARCH models.
+  Ardia and Hoogerheide (2010). See also Ardia (2009) for an extension of the algorithm for Markov-switching GARCH models.
 
   The \code{control} argument is a list that can supply any of
   the following components:
@@ -119,7 +119,7 @@
   \eqn{\nu}{nu} is \eqn{\delta + 1/\lambda}{delta + 1/lambda}.
   
   The joint prior on parameter \eqn{\psi := (\alpha,
-    \beta, \nu)}{psi:=(alpha,beta,nu)} is obtained by assuming prior independance:
+    \beta, \nu)}{psi:=(alpha,beta,nu)} is obtained by assuming prior independence:
   \deqn{
     p(\psi) = p(\alpha) p(\beta) p(\nu).
   }{
@@ -128,7 +128,7 @@
 
   The default hyperparameters \eqn{\mu_\alpha}{mu_alpha}, \eqn{\Sigma_\alpha}{Sigma_alpha},
   \eqn{\mu_\beta}{mu_beta}, \eqn{\Sigma_\beta}{Sigma_beta} and \eqn{\lambda}{lambda} define a rather
-  vague prior. The hyperparameter \eqn{\delta \geq 2}{delta>=2} ensures the
+  vague prior. The hyper-parameter \eqn{\delta \geq 2}{delta>=2} ensures the
   existence of the conditional variance. The \eqn{k}th conditional
   moment for \eqn{\epsilon_t}{e(t)} is guaranteed by setting \eqn{\delta \geq k}{delta>=k}.
   
@@ -190,44 +190,44 @@
   Please cite the package in publications. Use \code{citation("bayesGARCH")}.
 }
 \references{%
-  Ardia, D. (2009).
+  Ardia, D. (2009)
   Bayesian Estimation of a Markov-Switching Threshold Asymmetric GARCH Model with Student-t Innovations.
   \emph{Econometrics Journal} \bold{12}(1), pp. 105--126. doi: 10.1111/j.1368-423X.2008.00253.x.
 
-  Ardia, D., Hoogerheide, L.F. (2009).
-  Bayesian Estimation of the GARCH(1,1) Model with Student-t Innovations in R. 
-  \emph{MPRA working paper}. pp.1--8. 
-  URL \url{http://mpra.ub.uni-muenchen.de/17414/}
+  Ardia, D., Hoogerheide, L.F. (2010)
+  Bayesian Estimation of the GARCH(1,1) Model with Student-t Innovations.
+  \emph{The R Journal} \bold{2}(2), pp.41--47. 
+  URL \url{http://journal.r-project.org/}
 
-  Ardia, D. (2008). 
+  Ardia, D. (2008) 
   Financial Risk Management with Bayesian Estimation of GARCH Models. 
   Lecture Notes in Economics and Mathematical Systems \bold{612}. Springer-Verlag, Berlin, Germany.
   ISBN 978-3-540-78656-6, e-ISBN 978-3-540-78657-3, doi: 10.1007/978-3-540-78657-3. 
   URL \url{http://www.springer.com/economics/econometrics/book/978-3-540-78656-6}
 
-  Ardia, D. (2006).
+  Ardia, D. (2006)
   Bayesian Estimation of the GARCH(1,1) Model with Normal Innovations. 
   \emph{Student} \bold{5}(3--4), pp.283--298.
-  URL \url{http://mpra.ub.uni-muenchen.de/12985/}
+  URL \url{http://ssrn.com/abstract=1543409}
 
-  Deschamps, P.J. (2006). 
+  Deschamps, P.J. (2006) 
   A Flexible Prior Distribution for Markov Switching Autoregressions with Student-t Errors. 
   \emph{Journal of Econometrics} \bold{133}, pp.153--190.
 
-  Geweke, J.F. (1993). 
+  Geweke, J.F. (1993)
   Bayesian Treatment of the Independent Student-t Linear Model. 
   \emph{Journal of Applied Econometrics} \bold{8}, pp.19--40.
 
-  Nakatsuma, T. (2000). 
+  Nakatsuma, T. (2000)
   Bayesian Analysis of ARMA-GARCH Models: A Markov Chain Sampling Approach. 
   \emph{Journal of Econometrics} \bold{95}(1), pp.57--69.
 
-  Nakatsuma, T. (1998). 
+  Nakatsuma, T. (1998)
   A Markov-Chain Sampling Algorithm for GARCH Models'. 
   \emph{Studies in Nonlinear Dynamics and Econometrics} \bold{3}(2), pp.107--117.
 }
 \author{%
-  David Ardia <\email{david.ardia@unifr.ch}>
+  David Ardia \email{david.ardia@unifr.ch}
 }
 \seealso{%
   \code{\link[fGarch:garchFit]{garchFit}} (\R package \pkg{fGarch}) for the classical
