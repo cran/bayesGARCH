@@ -8,7 +8,7 @@
   formSmpl(MCMC, l.bi = 0, batch.size = 1)
 }
 \arguments{%
-  \item{MCMC}{object of the classe \code{mcmc.list} (\R package
+  \item{MCMC}{object of the class \code{mcmc.list} (\R package
     \pkg{coda}) or a list of matrices or a matrix.}
   \item{l.bi}{length of the \emph{burn-in} phase.}
   \item{batch.size}{batching size used to diminish the autocorrelation within the chains.}
@@ -20,7 +20,7 @@
   Please cite the package in publications. Use \code{citation("bayesGARCH")}.
 }
 \author{%
-  David Ardia <\email{david.ardia@unifr.ch}>
+  David Ardia \email{david.ardia@unifr.ch}
 }
 \seealso{%
   \code{\link{bayesGARCH}} for the Bayesian estimation of the GARCH(1,1)

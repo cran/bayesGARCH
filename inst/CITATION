@@ -5,7 +5,7 @@ vers <- paste("version", meta$Version)
 citHeader("To cite 'bayesGARCH' in publications use:")
 
 citEntry(entry = "Manual",
-  title = "bayesGARCH: Bayesian Estimation of the GARCH(1,1) Model with Student-t Innovations in R",
+  title = "{bayesGARCH}: Bayesian Estimation of the {GARCH(1,1)} Model with Student-t Innovations in {R}",
   author = personList(as.person("David Ardia")),
   year = year,
   note = vers,
@@ -18,7 +18,7 @@ citEntry(entry = "Manual",
 )
 
 citEntry(entry = "book",
-  title = "Financial Risk Management with Bayesian Estimation of GARCH Models: Theory and Applications",
+  title = "Financial Risk Management with Bayesian Estimation of {GARCH} Models: Theory and Applications",
   author = personList(as.person("David Ardia")),
   publisher = "Springer-Verlag",
   address = "Berlin, Germany",
@@ -31,25 +31,27 @@ citEntry(entry = "book",
                 "Financial Risk Management with Bayesian Estimation of GARCH Models: Theory and Application.",
                 "Lecture Notes in Economics and Mathematical Systems 612.",
                 "Springer-Verlag, Berlin, Germany.",
-                "ISBN: 978-3-540-78656-6, e-ISBN: 978-3-540-78657-3, doi: 10.1007/978-3-540-78657-3.")
-)
-
-citEntry(entry = "misc",
-  author = personList(as.person("David Ardia"), person("Lennart","Hoogerheide","F.")),
-  title = "Bayesian Estimation of the GARCH(1,1) Model with Student-t Innovations in R",
-  howpublished = "MPRA working paper",
-  month = "September",
-  year = "2009",
-  note = "URL http://mpra.ub.uni-muenchen.de/17414/",
-  textVersion = paste(
-                "Ardia, David and Hoogerheide, Lennart F. (2009).",
-                "Bayesian Estimation of the GARCH(1,1) Model with Student-t Innovations in R.",
-                "MPRA working paper.",
-                "URL http://mpra.ub.uni-muenchen.de/17414/")
+                "ISBN 978-3-540-78656-6, e-ISBN 978-3-540-78657-3, doi 10.1007/978-3-540-78657-3.")
 )
 
 citEntry(entry = "Article",
-  title = "Bayesian Estimation of a Markov-Switching Threshold Asymmetric GARCH Model with Student-t Innovations",
+  author = personList(as.person("David Ardia"), person("Lennart","Hoogerheide","F.")),
+  title = "Bayesian Estimation of the {GARCH(1,1)} Model with Student-t Innovations",
+  journal = "The R Journal",
+  volume = "2",
+  number = "2",
+  pages = "41--47",
+  year = "2010",
+  note = "URL http://journal.r-project.org/",
+  textVersion = paste(
+                "Ardia, David and Hoogerheide, Lennart F. (2010).",
+                "Bayesian Estimation of the GARCH(1,1) Model with Student-t Innovations.",
+                "The R Journal 2(2), pp.41-47",
+                "URL http://journal.r-project.org/")
+)
+
+citEntry(entry = "Article",
+  title = "Bayesian Estimation of a Markov-Switching Threshold Asymmetric {GARCH} Model with Student-t Innovations",
   author = personList(as.person("David Ardia")),
   journal = "Econometrics Journal",
   volume = "12",
@@ -63,7 +65,7 @@ citEntry(entry = "Article",
 )
 
 citEntry(entry = "Article",
-  title = "Bayesian Analysis of ARMA-GARCH Models: A Markov Chain Sampling Approach",
+  title = "Bayesian Analysis of {ARMA-GARCH} Models: A Markov Chain Sampling Approach",
   author = personList(as.person("Teruo Nakatsuma")),
   journal = "Journal of Econometrics",
   volume = "95",
@@ -77,15 +79,17 @@ citEntry(entry = "Article",
 )
 
 citEntry(entry = "Article",
-  title = "Bayesian Estimation of the GARCH(1,1) Model with Normal Innovations",
+  title = "Bayesian Estimation of the {GARCH(1,1)} Model with Normal Innovations",
   author = personList(as.person("David Ardia")),
   journal = "Student",
   volume = "5",
   number = "3--4",
   pages = "283--298",
   year = "2006",
+  note = "URL http://ssrn.com/abstract=1543409",
   textVersion = paste(
                 "Ardia, David (2006).",
                 "Bayesian Estimation of the GARCH(1,1) Model with Normal Innovations.",
-                "Student 5(3-4), pp.283-298.")
+                "Student 5(3-4), pp.283-298.",
+                "URL http://ssrn.com/abstract=1543409")
 )
