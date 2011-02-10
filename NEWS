@@ -1,12 +1,16 @@
+Changes in Version 1-00.9
+  o new package vignette added
+  o changes in documetation.
+
 Changes in Version 1-00.8
-  o CITATION file modified
-  o package vignette updated
-  o package vignette published in The R Journal
+  o CITATION file modified.
+  o package vignette updated.
+  o package vignette published in The R Journal.
 
 Changes in Version 1-00.7
-  o CITATION file modified
-  o documentation files modified
-  o package vignette added to \inst\doc
+  o CITATION file modified.
+  o documentation files modified.
+  o package vignette added to \inst\doc.
 
 Changes in Version 1-00.6
   o function addPriorConditions is now a control parameter in bayesGARCH.
@@ -19,13 +23,13 @@ Changes in Version 1-00.05
 
 Changes in Version 1-00.04
   o CITATION file modified.
-  o change in documetation.
+  o changes in documetation.
 
 Changes in Version 1-00.03
   o CITATION file modified.
 
 Changes in Version 1-00.02
-  o change in documentation.
+  o changes in documentation.
 
 Changes in Version 1-00.01
-  o change in documentation.
+  o changes in documentation.

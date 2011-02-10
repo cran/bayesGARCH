@@ -42,7 +42,8 @@
   function \eqn{\alpha := (\alpha_0 \ \alpha_1)'}{alpha:=(alpha0 alpha1)'} and \eqn{\beta}{beta} and on
   Geweke (1993) and Deschamps (2006) for the generating the degrees of freedom
   parameter \eqn{\nu}{nu}. Further details and examples can be found in Ardia (2008) and 
-  Ardia and Hoogerheide (2010). See also Ardia (2009) for an extension of the algorithm for Markov-switching GARCH models.
+  Ardia and Hoogerheide (2010). See also the package vignette by typing \code{vignette("bayesGARCH")}. Finally, we refer to 
+  Ardia (2009) for an extension of the algorithm to Markov-switching GARCH models.
 
   The \code{control} argument is a list that can supply any of
   the following components:
