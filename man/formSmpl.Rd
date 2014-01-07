@@ -20,7 +20,7 @@
   Please cite the package in publications. Use \code{citation("bayesGARCH")}.
 }
 \author{%
-  David Ardia \email{david.ardia@unifr.ch}
+  David Ardia
 }
 \seealso{%
   \code{\link{bayesGARCH}} for the Bayesian estimation of the GARCH(1,1)
@@ -32,10 +32,10 @@
   y <- dem2gbp[1:750]
 
   ## RUN THE ESTIMATION
-  MCMC <- bayesGARCH(y, control = list(n.chain = 2, l.chain = 1000))
+  MCMC <- bayesGARCH(y, control = list(n.chain = 2, l.chain = 500))
 
   ## FORM THE SAMPLE FROM THE MCMC OUTPUT
-  smpl <- formSmpl(MCMC, l.bi = 500, batch.size = 2)
+  smpl <- formSmpl(MCMC, l.bi = 250, batch.size = 2)
 
   ## POSTERIOR STATISTICS
   summary(smpl)

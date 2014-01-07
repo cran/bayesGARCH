@@ -228,7 +228,7 @@
   \emph{Studies in Nonlinear Dynamics and Econometrics} \bold{3}(2), pp.107--117.
 }
 \author{%
-  David Ardia \email{david.ardia@unifr.ch}
+  David Ardia
 }
 \seealso{%
   \code{\link[fGarch:garchFit]{garchFit}} (\R package \pkg{fGarch}) for the classical
@@ -240,7 +240,8 @@
   y <- dem2gbp[1:750]
 
   ## RUN THE SAMPLER (2 chains)
-  MCMC <- bayesGARCH(y, control = list(n.chain = 2, l.chain = 2000))
+  ## NB: CONSIDER LARGER l.chain!
+  MCMC <- bayesGARCH(y, control = list(n.chain = 2, l.chain = 500))
 
   ## MCMC ANALYSIS (using coda)
   plot(MCMC)
@@ -249,22 +250,11 @@
   1-rejectionRate(MCMC)
 
   ## FORM THE POSTERIOR SAMPLE
-  smpl <- formSmpl(MCMC, l.bi = 500)
+  smpl <- formSmpl(MCMC, l.bi = 100)
 
   ## POSTERIOR STATISTICS
   summary(smpl)
   smpl <- as.matrix(smpl)
   pairs(smpl)
-
-  ## GARCH(1,1) WITH NORMAL INNOVATIONS
-  MCMC <- bayesGARCH(y, lambda = 100, delta = 500,
-                     control = list(n.chain = 2, l.chain = 2000))
-
-  ## GARCH(1,1) WITH NORMAL INNOVATIONS AND 
-  ## WITH COVARIANCE STATIONARITY CONDITION
-  addPriorConditions <- function(psi){psi[2] + psi[3] < 1}
-  MCMC <- bayesGARCH(y, lambda = 100, delta = 500,
-                     control = list(n.chain = 2, l.chain = 2000, 
-                     addPriorConditions = addPriorConditions))
 }
 \keyword{models}
