@@ -67,7 +67,7 @@
 
 ## sub function fn.bayesGARCH
 "fn.bayesGARCH" <- function(y, mu.alpha, iv.alpha, mu.beta, iv.beta, c.nu, d.nu, control){
-  
+
   con <- list(n.chain = NULL, l.chain = 10000, addPriorConditions = NULL, digits = 4, refresh = 10,
               start.val = matrix(c(0.01,0.1, 0.7, 100), 1, 4,
                 dimnames = list("chain1", c("alpha0", "alpha1", "beta", "nu"))),
@@ -160,7 +160,7 @@
   r <- matrix(NA, l.chain, length(start.val), dimnames = list(1:l.chain, names(start.val)))
   r[1,] <- start.val
   
-  mcmc(r, start = 1)
+  coda::mcmc(r, start = 1)
 }
 
 ## fn.block
@@ -210,7 +210,7 @@
   Dd.D <- fn.Dd.D(y^2/w, filter.alpha, tau,
                   alpha0, iv.alpha0)
   
-  alpha.new <- t( rmvnorm(n = 1, mean = Dd.D$Dd, sigma = Dd.D$D) )
+  alpha.new <- t( mvtnorm::rmvnorm(n = 1, mean = Dd.D$Dd, sigma = Dd.D$D) )
 
   if (all(alpha.new>0)){
     h.new <- fn.cvGARCH(y, c(alpha.new, beta))[1:n]
@@ -220,7 +220,7 @@
     post.new <- fn.post.garch(y, w*h.new, alpha.new, beta, nu,
                               alpha0, iv.alpha0, beta0, iv.beta0, c.nu, d.nu)
 
-    prop.new <- dmvnorm(t(alpha.new), mean = Dd.D$Dd, sigma = Dd.D$D, log = TRUE)
+    prop.new <- mvtnorm::dmvnorm(t(alpha.new), mean = Dd.D$Dd, sigma = Dd.D$D, log = TRUE)
 		
     Dd.D <- fn.Dd.D(y^2/w, filter.alpha, tau.new,
                     alpha0, iv.alpha0)

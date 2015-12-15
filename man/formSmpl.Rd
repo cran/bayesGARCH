@@ -19,23 +19,22 @@
 \note{%
   Please cite the package in publications. Use \code{citation("bayesGARCH")}.
 }
-\author{%
-  David Ardia
-}
 \seealso{%
   \code{\link{bayesGARCH}} for the Bayesian estimation of the GARCH(1,1)
   model with Student-t innovations.
 }
 \examples{
+  ## !!! INCREASE THE NUMBER OF MCMC ITERATIONS !!!
+
   ## LOAD DATA SET
   data(dem2gbp)
   y <- dem2gbp[1:750]
 
   ## RUN THE ESTIMATION
-  MCMC <- bayesGARCH(y, control = list(n.chain = 2, l.chain = 500))
+  MCMC <- bayesGARCH(y, control = list(n.chain = 2, l.chain = 100))
 
   ## FORM THE SAMPLE FROM THE MCMC OUTPUT
-  smpl <- formSmpl(MCMC, l.bi = 250, batch.size = 2)
+  smpl <- formSmpl(MCMC, l.bi = 50, batch.size = 2)
 
   ## POSTERIOR STATISTICS
   summary(smpl)

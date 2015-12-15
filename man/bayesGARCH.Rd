@@ -190,6 +190,9 @@
   
   Please cite the package in publications. Use \code{citation("bayesGARCH")}.
 }
+\author{%
+  David Ardia \email{david.ardia@fsa.ulaval.ca}
+}
 \references{%
   Ardia, D. (2009)
   Bayesian Estimation of a Markov-Switching Threshold Asymmetric GARCH Model with Student-t Innovations.
@@ -205,11 +208,6 @@
   Lecture Notes in Economics and Mathematical Systems \bold{612}. Springer-Verlag, Berlin, Germany.
   ISBN 978-3-540-78656-6, e-ISBN 978-3-540-78657-3, doi: 10.1007/978-3-540-78657-3. 
   URL \url{http://www.springer.com/economics/econometrics/book/978-3-540-78656-6}
-
-  Ardia, D. (2006)
-  Bayesian Estimation of the GARCH(1,1) Model with Normal Innovations. 
-  \emph{Student} \bold{5}(3--4), pp.283--298.
-  URL \url{http://ssrn.com/abstract=1543409}
 
   Deschamps, P.J. (2006) 
   A Flexible Prior Distribution for Markov Switching Autoregressions with Student-t Errors. 
@@ -227,34 +225,40 @@
   A Markov-Chain Sampling Algorithm for GARCH Models'. 
   \emph{Studies in Nonlinear Dynamics and Econometrics} \bold{3}(2), pp.107--117.
 }
-\author{%
-  David Ardia
-}
 \seealso{%
   \code{\link[fGarch:garchFit]{garchFit}} (\R package \pkg{fGarch}) for the classical
   Maximum Likelihood estimation of GARCH models.
 }
 \examples{%
+  ## !!! INCREASE THE NUMBER OF MCMC ITERATIONS !!!
+
   ## LOAD DATA
   data(dem2gbp)
   y <- dem2gbp[1:750]
 
   ## RUN THE SAMPLER (2 chains)
-  ## NB: CONSIDER LARGER l.chain!
-  MCMC <- bayesGARCH(y, control = list(n.chain = 2, l.chain = 500))
+  MCMC <- bayesGARCH(y, control = list(n.chain = 2, l.chain = 200))
 
   ## MCMC ANALYSIS (using coda)
   plot(MCMC)
-  autocorr.diag(MCMC)
-  gelman.diag(MCMC)
-  1-rejectionRate(MCMC)
-
+  
   ## FORM THE POSTERIOR SAMPLE
-  smpl <- formSmpl(MCMC, l.bi = 100)
+  smpl <- formSmpl(MCMC, l.bi = 50)
 
   ## POSTERIOR STATISTICS
   summary(smpl)
   smpl <- as.matrix(smpl)
   pairs(smpl)
+
+  ## GARCH(1,1) WITH NORMAL INNOVATIONS
+  MCMC <- bayesGARCH(y, lambda = 100, delta = 500,
+                     control = list(n.chain = 2, l.chain = 200))
+
+  ## GARCH(1,1) WITH NORMAL INNOVATIONS AND 
+  ## WITH COVARIANCE STATIONARITY CONDITION
+  addPriorConditions <- function(psi){psi[2] + psi[3] < 1}
+  MCMC <- bayesGARCH(y, lambda = 100, delta = 500,
+                     control = list(n.chain = 2, l.chain = 200, 
+                     addPriorConditions = addPriorConditions))
 }
 \keyword{models}

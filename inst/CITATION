@@ -6,15 +6,13 @@ citHeader("To cite 'bayesGARCH' in publications use:")
 
 citEntry(entry = "Manual",
   title = "{bayesGARCH}: Bayesian Estimation of the {GARCH(1,1)} Model with Student-t Innovations in {R}",
-  author = personList(as.person("David Ardia")),
+  author = person("David", "Ardia", email = "david.ardia@fsa.ulaval.ca"),
   year = year,
   note = vers,
-  url = "http://CRAN.R-project.org/package=bayesGARCH",
   textVersion =
   paste("Ardia, David (", year, "). ",
         "bayesGARCH: Bayesian Estimation of the GARCH(1,1) Model with Student-t Innovations in R. ",
-        "R package version ", vers, ". ",
-        "URL http://CRAN.R-project.org/package=bayesGARCH", sep = "")
+        "R package version ", vers, ". ", sep = "")
 )
 
 citEntry(entry = "book",
@@ -76,20 +74,4 @@ citEntry(entry = "Article",
                 "Nakatsuma, Teruo (2000).",
                 "Bayesian Analysis of ARMA-GARCH Models: A Markov Chain Sampling Approach.",
                 "Journal of Econometrics 95(1), pp.57-69.")
-)
-
-citEntry(entry = "Article",
-  title = "Bayesian Estimation of the {GARCH(1,1)} Model with Normal Innovations",
-  author = personList(as.person("David Ardia")),
-  journal = "Student",
-  volume = "5",
-  number = "3--4",
-  pages = "283--298",
-  year = "2006",
-  note = "URL http://ssrn.com/abstract=1543409",
-  textVersion = paste(
-                "Ardia, David (2006).",
-                "Bayesian Estimation of the GARCH(1,1) Model with Normal Innovations.",
-                "Student 5(3-4), pp.283-298.",
-                "URL http://ssrn.com/abstract=1543409")
 )

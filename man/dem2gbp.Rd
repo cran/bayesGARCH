@@ -13,7 +13,7 @@
 \usage{data(dem2gbp)}
 \format{A vector of size 1974.}
 \source{Journal of Business and Economic Statistics\cr
-  \url{ftp://www.amstat.org/JBES_View/96-2-APR/bollerslev_ghysels}.}
+  url: ftp://www.amstat.org/JBES_View/96-2-APR/bollerslev_ghysels.}
 \references{%
   Bollerslev T., Ghysels, E. (1996) 
   Periodic Autoregressive Conditional Heteroscedasticity. 

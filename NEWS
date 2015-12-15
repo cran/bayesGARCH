@@ -1,3 +1,11 @@
+Changes in Version 2.0.3
+  o DESCRIPTION modified
+  o references modified
+
+Changes in Version 2.0.2
+  o DESCRIPTION file adapted to new standard
+  o Vignette modified
+
 Changes in Version 2.0.1
   o new version compiled
   o change of email address
@@ -27,6 +35,7 @@ Changes in Version 1-00.6
   o demo file modified accordingly.
   o documentation modified accordingly.
   o CITATION file modified.
+  o remove obsolete vignette
 
 Changes in Version 1-00.05
   o CITATION file corrected
