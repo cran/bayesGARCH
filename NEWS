@@ -1,10 +1,8 @@
-Changes in Version 2.1.5
-  o Doc update
-
-Changes in Version 2.1.4
-  o Doc update
-  o Citation modified
-
+Changes in Version 2.1.7
+  o Update doc to remove ftp:// sites
+  o Update https
+  o RegisteringDynamic Symbols
+  
 Changes in Version 2.1.2
   o Update doc
   o Adapt to new CRAN standards
