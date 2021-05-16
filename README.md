@@ -1,7 +1,4 @@
 # bayesGARCH
-[![CRAN](http://www.r-pkg.org/badges/version/bayesGARCH)](https://cran.r-project.org/package=bayesGARCH) 
-[![Downloads](http://cranlogs.r-pkg.org/badges/bayesGARCH?color=brightgreen)](https://www.r-pkg.org/pkg/bayesGARCH)
-[![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/bayesGARCH?color=brightgreen)](https://www.r-pkg.org/pkg/bayesGARCH)
 
 The package `bayesGARCH` ([Ardia and Hoogerheide, 2010)](https://doi.org/10.32614/RJ-2010-014) implements in R 
 the Bayesian estimation procedure described 

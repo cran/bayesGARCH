@@ -27,7 +27,3 @@
   \emph{Journal of Economic and Social Measurement} \bold{25}(2), pp.59--71.
 }
 \keyword{datasets}
-
-
-
-
